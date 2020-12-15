@@ -22,7 +22,7 @@ cp -R m-pkg /data/data/com.termux/files/usr/bin
 echo
 
 echo -en "\e[92m Do you wish to see a practical video on it (y/n)? \e[m "
-read answer
+read -r answer
    if [ "$answer" != "${answer#[Yy]}" ] ;then
         am start -a android.intent.action.VIEW -d https://youtu.be/7xZFg67y1Ug >> /dev/null 2>&1
   else
@@ -32,8 +32,8 @@ read answer
 echo 
 echo -e "\e[33m Run \e[32m m-pkg \e[33m From anywhere to install megapackages tools \e[m "
 echo
-cd $HOME
+cd "$HOME" || exit
 rm -rf Termux-Megapackage
 echo
-cd $HOME
+cd "$HOME" || exit
 exec bash
